@@ -56,10 +56,10 @@
     {img:"images/flyer-viva-mexico.jpeg",    title:"¡Viva México!",               date:"15 Septiembre 2025 · Club Nocturno · Tizimín, Yucatán"},
     {img:"images/flyer-eclipse.jpeg",        title:"Eclipse Euphoria",            date:"5 Septiembre 2025 · Fiesta Universitaria · Tizimín, Yucatán"},
     {img:"images/flyer-eden-cuyo.jpeg",      title:"Eden · Cuyo 2025",            date:"19 Abril 2025 · Festival · El Cuyo, Yucatán"},
-    {img:"images/flyer-sunset.jpeg",         title:"Sunset Party Frozetti",       date:"4 Abril 2025 · Evento Corporativo · El Cuyo, Yucatán"},
+    {img:"images/flyer-sunset.jpeg",         title:"Sunset Party Frozetti",       date:"4 Abril 2026 · Evento Corporativo · El Cuyo, Yucatán"},
     {img:"images/flyer-studio25.jpeg",       title:"Studio 25",                   date:"13 Marzo 2025 · Fiesta Universitaria · Tizimín, Yucatán"},
     {img:"images/flyer-el-estadio.jpeg",     title:"El Estadio · Inauguración",   date:"20 Febrero 2025 · Evento Corporativo · Tizimín, Yucatán"},
-    {img:"images/flyer-trakas.jpeg",         title:"Trakas Hosptu · Feria de Reyes", date:"2 Enero 2025 · Festival · Expo Feria Tizimín"},
+    {img:"images/flyer-trakas.jpeg",         title:"Trakas HDSPTM · Feria de Reyes", date:"2 Enero 2025 · Festival · Expo Feria Tizimín"},
     {img:"images/flyer-noche-muertos.jpeg",  title:"Noche de Muertos",            date:"2 Noviembre 2024 · Festival · Tizimín, Yucatán"}
     
   ];
