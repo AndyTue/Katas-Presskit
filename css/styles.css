@@ -5,8 +5,8 @@
     --img-bw:url('../images/Portada.png'); --img-portrait:url('../images/portrait.jpg'); --img-club:url('../images/club-bg.jpg');
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%;}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
   ::selection{background:#fff;color:#000}
@@ -97,7 +97,7 @@
   .media{background:#000;padding:clamp(5rem,10vw,8rem) 0}
   .media-head{text-align:center;margin-bottom:3.2rem;padding:0 1.5rem}
   .media-head h2{margin-top:.9rem;letter-spacing:.05em}
-  .flow{position:relative;height:430px;max-width:1100px;margin:0 auto;perspective:1300px}
+  .flow{position:relative;height:430px;max-width:1100px;margin:0 auto;perspective:1300px;overflow:hidden}
   .flow-stage{position:relative;width:100%;height:330px;transform-style:preserve-3d}
   .sc-card{position:absolute;left:50%;top:0;width:300px;height:300px;margin-left:-150px;border-radius:8px;overflow:hidden;cursor:pointer;background-color:#1a1a1a;background-size:cover;background-position:center;transition:transform .3s cubic-bezier(.25,.7,.25,1),opacity .3s;box-shadow:0 24px 60px rgba(0,0,0,.6)}
   .sc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(0,0,0,.9) 100%)}
@@ -171,7 +171,7 @@
   .fly-sec{background:#000;padding:clamp(5rem,10vw,8rem) 0}
   .fly-head{text-align:center;margin-bottom:3rem;padding:0 1.5rem}
   .fly-head h2{margin-top:.9rem}
-  .fly{position:relative;height:520px;max-width:1100px;margin:0 auto;perspective:1400px}
+  .fly{position:relative;height:520px;max-width:1100px;margin:0 auto;perspective:1400px;overflow:hidden}
   .fly-stage{position:relative;width:100%;height:440px;transform-style:preserve-3d}
   .fly-card{position:absolute;left:50%;top:0;width:340px;height:440px;margin-left:-170px;border-radius:8px;overflow:hidden;cursor:pointer;background:#0d0d0d;border:1px solid var(--line);box-shadow:0 26px 60px rgba(0,0,0,.6);transition:transform .3s cubic-bezier(.25,.7,.25,1),opacity .3s}
   .fly-card img{width:100%;height:100%;object-fit:contain;display:block}
