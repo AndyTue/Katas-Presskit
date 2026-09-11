@@ -48,6 +48,7 @@
 
   // FLYERS carousel
   var FLYERS=[
+    {img:"images/welcome.jpg",           title:"Welcome UMT",               date:"11 Septiembre 2026 · Fiesta Universitaria · Tizimín, Yucatán"},
     {img:"images/flyer-eden.jpg",           title:"Eden Festival",               date:"14 Junio 2026 · Festival · Tizimín, Yucatán"},
     {img:"images/flyer-alborada.jpeg",        title:"Alborada 2026",               date:"10 Mayo 2026 · Club Nocturno · Tizimín, Yucatán"},
     {img:"images/flyer-cuyo-2k26.jpeg",       title:"Cuyo SS 2k26 Beach",          date:"3 y 4 Abril 2026 · Festival · El Cuyo, Yucatán"},
@@ -96,6 +97,60 @@
   document.getElementById('lbClose').onclick=closeLB;
   lb.addEventListener('click',function(e){if(e.target===lb)closeLB()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB()});
+
+  /* VINYL WIDGET — disco flotante con reproducción funcional (play/pausa)
+  (function(){
+    var widget=document.getElementById('vinylWidget'),
+        toggle=document.getElementById('vinylToggle'),
+        audio=document.getElementById('vinylAudio'),
+        state=document.getElementById('vinylState');
+    if(!widget||!toggle||!audio)return;
+ 
+    function setUI(isPlaying){
+      widget.classList.toggle('playing',isPlaying);
+      toggle.setAttribute('aria-pressed',isPlaying?'true':'false');
+      toggle.setAttribute('aria-label',isPlaying?'Pausar':'Reproducir');
+      if(state)state.textContent=isPlaying?'Reproduciendo':'En pausa';
+    }
+ 
+    function tryPlay(){
+      var p=audio.play();
+      if(p&&p.catch){ p.catch(function(){ setUI(false); armFirstInteraction(); }); }
+    }
+ 
+    // Los navegadores bloquean el autoplay con sonido hasta que el usuario
+    // interactúa con la página. Si el intento automático al cargar falla,
+    // arrancamos en cuanto ocurra el primer click/tecla/toque en el sitio.
+    var armed=false;
+    function armFirstInteraction(){
+      if(armed)return; armed=true;
+      function start(){
+        document.removeEventListener('click',start);
+        document.removeEventListener('keydown',start);
+        document.removeEventListener('touchstart',start);
+        armed=false;
+        if(audio.paused)tryPlay();
+      }
+      document.addEventListener('click',start,{once:true});
+      document.addEventListener('keydown',start,{once:true});
+      document.addEventListener('touchstart',start,{once:true});
+    }
+ 
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(audio.paused){tryPlay()}else{audio.pause()}
+    });
+    audio.addEventListener('play',function(){setUI(true)});
+    audio.addEventListener('pause',function(){setUI(false)});
+    audio.addEventListener('error',function(){
+      if(state)state.textContent='Agrega el audio';
+      toggle.disabled=true;
+      widget.classList.add('no-audio');
+    });
+ 
+    setUI(false);
+    tryPlay();
+  })(); */
 
   // VIDEO CARRUSEL — pendiente de implementar cuando el sitio esté en servidor HTTP
   // var ytVideos=['bKr7PXtzmoc','Nr7oTNin7nY','VDrf_xir0Kk','4qWzSpDgI-0','nK3M_fg3SAE','7dPCDnmwAHY'];

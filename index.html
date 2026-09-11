@@ -20,7 +20,7 @@
   <a class="brand" href="#top"><img src="images/logo.png" alt="Katas"></a>
   <div class="links">
     <a href="#bio">Bio</a><a href="#vivo">En vivo</a><a href="#musica">Música</a>
-    <a href="#hidden">Hidden</a><a href="#eventos">Eventos</a><a href="#contacto">Contacto</a>
+    <a href="#lanzamiento">Lanzamiento</a><a href="#hidden">Hidden</a><a href="#eventos">Eventos</a><a href="#contacto">Contacto</a>
   </div>
 </nav>
 
@@ -118,6 +118,24 @@
   <div class="media-cta reveal"><a href="https://soundcloud.com/yahir-perez-785744268" target="_blank" rel="noopener">Ver perfil en SoundCloud</a></div>
 </section>
 
+<section class="block release" id="lanzamiento">
+  <div class="release-grid">
+    <!-- Foto/portada del lanzamiento: reemplaza el fondo en .release-photo .ph dentro de css/styles.css,
+         o agrega aquí una etiqueta <img src="images/TU-PORTADA.jpg" alt="Mashup Pack Vol. 1"> -->
+    <div class="release-photo reveal"><div class="ph"></div></div>
+    <div class="reveal">
+      <div class="release-head"><span class="eyebrow">Último lanzamiento</span><h2 class="title">Mashup Pack<br>Vol. 1</h2></div>
+      <p class="release-desc">Nuevo pack de mashups de autoría propia, listo para integrarse a cualquier set. Descarga la carpeta completa con todas las pistas en un solo archivo.</p>
+      <div class="release-cta">
+        <a href="assets/mashup-pack-vol-1.zip" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/></svg>
+          Descargar pack
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="hidden" id="hidden">
   <div class="reveal">
     <img class="hidden-logo" src="images/logo-hidden.png" alt="Hidden">
@@ -186,6 +204,23 @@
 </button>
 
 <div class="lightbox" id="lightbox"><span class="lb-close" id="lbClose">×</span><img id="lbImg" src="" alt="Flyer"></div>
+
+<!-- WIDGET: disco girando reproduciendo música (independiente, flotante en toda la página)
+<div class="vinyl-widget" id="vinylWidget">
+  <button class="vinyl-disc" id="vinylToggle" type="button" aria-pressed="false" aria-label="Reproducir">
+    <span class="vinyl-groove"></span>
+    <span class="vinyl-label">K</span>
+    <span class="vinyl-icon">
+      <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+    </span>
+  </button>
+  <div class="vinyl-info">
+    <span class="vinyl-track">Mashup Pack Vol. 1</span>
+    <span class="vinyl-state" id="vinylState">Toca para reproducir</span>
+  </div>
+  <audio id="vinylAudio" src="assets/mashup.mp3" preload="auto" loop></audio>
+</div> -->
 
 <script src="js/main.js"></script>
 </body>
