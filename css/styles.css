@@ -10,7 +10,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;overflow-x:hidden}
   body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%;}
-  img{display:block;max-width:100%}
+  img{display:block;max-width:100%;height:auto}
   a{color:inherit;text-decoration:none}
   ::selection{background:#fff;color:#000}
   .eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--muted)}
