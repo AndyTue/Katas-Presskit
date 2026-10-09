@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -11,13 +11,17 @@
 <link rel="manifest" href="images/favicon_io/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/Portada.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/logo.webp" type="image/webp">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;700;800&display=swap"></noscript>
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/lenis.css">
 </head>
 <body>
 
 <nav id="nav">
-  <a class="brand" href="#top"><img src="images/logo.png" alt="Katas"></a>
+  <a class="brand" href="#top"><img src="images/logo.webp" alt="Katas"></a>
   <div class="links">
     <a href="#bio">Bio</a><a href="#vivo">En vivo</a><a href="#musica">Música</a>
     <a href="#lanzamiento">Lanzamiento</a><a href="#hidden">Hidden</a><a href="#eventos">Eventos</a><a href="#contacto">Contacto</a>
@@ -28,7 +32,7 @@
   <div class="hero-tex"></div>
   <div class="hero-portrait"></div>
   <div class="hero-inner">
-    <img class="hero-logo" src="images/logo.png" alt="DJ KATAS">
+    <img fetchpriority="high" decoding="async" width="700" height="172" class="hero-logo" src="images/logo.webp" alt="DJ KATAS">
     <div class="hero-loc">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.4-7-11a7 7 0 0 1 14 0c0 4.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
       Tizimín, Yucatán · México
@@ -110,10 +114,19 @@
 
 <section class="media" id="musica">
   <div class="media-head reveal"><span class="eyebrow">Escucha · Katas</span><h2 class="title">SoundCloud</h2></div>
-  <div class="flow reveal" id="flow">
-    <button class="flow-nav flow-prev" id="scPrev" aria-label="Anterior">‹</button>
+  <div class="flow reveal" id="flow" tabindex="0" role="group" aria-roledescription="carrusel" aria-label="Tracks de Katas. Usa las flechas izquierda y derecha para navegar; Enter reproduce el track central.">
+    <button class="flow-nav flow-prev" id="scPrev" type="button" aria-label="Track anterior">&lsaquo;</button>
     <div class="flow-stage" id="scStage"></div>
-    <button class="flow-nav flow-next" id="scNext" aria-label="Siguiente">›</button>
+    <button class="flow-nav flow-next" id="scNext" type="button" aria-label="Track siguiente">&rsaquo;</button>
+  </div>
+  <div class="sc-info reveal">
+    <p class="sc-tag" id="scTag"></p>
+    <div class="sc-tl" aria-live="polite">
+      <p class="sc-title" id="scTitle"></p>
+      <span class="eq" id="scEq" hidden aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    </div>
+    <div class="sc-player" id="scPlayer" hidden></div>
+    <a class="sc-open" id="scOpen" href="#" target="_blank" rel="noopener">Abrir este track en SoundCloud</a>
   </div>
   <div class="media-cta reveal"><a href="https://soundcloud.com/yahir-perez-785744268" target="_blank" rel="noopener">Ver perfil en SoundCloud</a></div>
 </section>
@@ -138,16 +151,19 @@
 
 <section class="hidden" id="hidden">
   <div class="reveal">
-    <img class="hidden-logo" src="images/logo-hidden.png" alt="Hidden">
+    <img loading="lazy" decoding="async" width="520" height="662" class="hidden-logo" src="images/logo-hidden.webp" alt="Hidden">
     <p class="hidden-desc">Uno de los creadores de <b>Hidden</b>, el primer canal y proyecto de sesiones de música electrónica en Tizimín, Yucatán. Un espacio dedicado a documentar y expandir la escena electrónica del sureste mexicano, sesión a sesión.<span class="feel">Unlock. Listen. Feel.</span></p>
   </div>
-  <!-- VIDEO CARRUSEL — pendiente de implementar cuando el sitio esté en servidor HTTP
-  <div class="vidwrap reveal">
-    <button class="vid-nav" id="vPrev" aria-label="Video anterior">‹</button>
-    <div class="vid-frame"><div class="ratio"><iframe id="ytplayer" src="https://www.youtube-nocookie.com/embed/bKr7PXtzmoc?rel=0&modestbranding=1&playsinline=1" title="Hidden — videos" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
-    <button class="vid-nav" id="vNext" aria-label="Video siguiente">›</button>
+  <div class="flow vflow reveal" id="vflow" tabindex="0" role="group" aria-roledescription="carrusel" aria-label="Sesiones de Hidden. Usa las flechas izquierda y derecha para navegar; Enter reproduce el video central.">
+    <button class="flow-nav flow-prev" id="vPrev" type="button" aria-label="Video anterior">&lsaquo;</button>
+    <div class="flow-stage" id="vStage"></div>
+    <button class="flow-nav flow-next" id="vNext" type="button" aria-label="Video siguiente">&rsaquo;</button>
   </div>
-  -->
+  <div class="sc-info reveal">
+    <p class="sc-tag" id="vTag"></p>
+    <div class="sc-tl" aria-live="polite"><p class="sc-title" id="vTitle"></p></div>
+    <a class="sc-open" id="vOpen" href="#" target="_blank" rel="noopener">Ver en YouTube</a>
+  </div>
   <div class="hidden-cta reveal"><a href="https://www.youtube.com/@HIDDEN_121" target="_blank" rel="noopener">Ver canal en YouTube</a></div>
 </section>
 
@@ -164,12 +180,18 @@
 <section class="block" id="galeria">
   <div class="show-head reveal"><span class="eyebrow">En cabina</span><h2 class="title">Galería</h2></div>
   <div class="gallery reveal">
-    <div class="gtile" style="background-image:url('images/gallery-1.jpg')"></div>
-    <div class="gtile" style="background-image:url('images/vivo-bg.jpg')"></div>
-    <div class="gtile" style="background-image:url('images/gallery-2.jpg')"></div>
-    <div class="gtile" style="background-image:url('images/gallery-3.jpg')"></div>
-    <div class="gtile" style="background-image:url('images/hero-bg.jpg')"></div>
-    <div class="gtile" style="background-image:url('images/portrait.jpg')"></div>
+    <div class="gtile" style="background-image:url('images/vivo-bg.webp')"></div>
+    <div class="gtile" style="background-image:url('images/gallery-2.webp')"></div>
+    <div class="gtile" style="background-image:url('images/gallery-3.webp')"></div>
+    <div class="gtile" style="background-image:url('images/hero-bg.webp')"></div>
+    <div class="gtile" style="background-image:url('images/portrait.webp')"></div>
+    <div class="gtile" style="background-image:url('images/foto1.webp')"></div>
+    <div class="gtile" style="background-image:url('images/foto2.webp')"></div>
+    <div class="gtile" style="background-image:url('images/foto3.webp')"></div>
+    <div class="gtile" style="background-image:url('images/foto4.webp')"></div>
+    <div class="gtile wide" style="background-image:url('images/foto6.webp')"></div>
+    <div class="gtile" style="background-image:url('images/foto5.webp')"></div>
+    <div class="gtile wide" style="background-image:url('images/foto7.webp')"></div>
   </div>
 </section>
 
@@ -188,7 +210,7 @@
 </section>
 
 <footer>
-  <img class="fmark" src="images/logo-footer.png" alt="Katas">
+  <img loading="lazy" decoding="async" width="700" height="172" class="fmark" src="images/logo-footer.webp" alt="Katas">
   <div class="socials ">
       <a href="ttps://www.instagram.com/katass.dj/" data-edit="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.2"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/></svg></a>
       <a href="https://soundcloud.com/yahir-perez-785744268" target="_blank" rel="noopener" aria-label="SoundCloud"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="1" y="13" width="1.6" height="5" rx=".8"/><rect x="3.8" y="11" width="1.6" height="7" rx=".8"/><rect x="6.6" y="9.4" width="1.6" height="8.6" rx=".8"/><rect x="9.4" y="10.6" width="1.6" height="7.4" rx=".8"/><rect x="12.2" y="9.4" width="9.8" height="8.6" rx="4.3"/></svg></a>
@@ -203,7 +225,7 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<div class="lightbox" id="lightbox"><span class="lb-close" id="lbClose">×</span><img id="lbImg" src="" alt="Flyer"></div>
+<div class="lightbox" id="lightbox"><span class="lb-close" id="lbClose">×</span><img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Flyer ampliado"></div>
 
 <!-- WIDGET: disco girando reproduciendo música (independiente, flotante en toda la página)
 <div class="vinyl-widget" id="vinylWidget">
@@ -222,6 +244,14 @@
   <audio id="vinylAudio" src="assets/mashup.mp3" preload="auto" loop></audio>
 </div> -->
 
-<script src="js/main.js"></script>
+<!-- Librerias de animacion (instaladas, aun sin inicializar): GSAP 3.15.0 + plugins, Lenis 1.3.26 + Snap -->
+<script defer src="js/vendor/gsap.min.js"></script>
+<script defer src="js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="js/vendor/SplitText.min.js"></script>
+<script defer src="js/vendor/Flip.min.js"></script>
+<script defer src="js/vendor/Observer.min.js"></script>
+<script defer src="js/vendor/lenis.min.js"></script>
+<script defer src="js/vendor/lenis-snap.min.js"></script>
+<script defer src="js/main.js"></script>
 </body>
 </html>

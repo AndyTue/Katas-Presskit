@@ -1,3 +1,30 @@
 .claude/
 assets/mashup-pack-vol-1.zip
 assets/mashup.mp3
+.impeccable/
+
+# Dependencias
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Entorno y temporales
+.env
+.env.*
+*.tmp
+*.bak
+.playwright-mcp/
+
+docs/
